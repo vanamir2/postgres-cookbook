@@ -94,3 +94,39 @@ TIP - **monitor memory usage** and adjust the configuration parameters as needed
   - can help improve scalability by allowing more background processes to be used for maintenance and other tasks
 
 # 2] Performing Basic PG Operations
+
+### Selecting Right DB schema
+
+Schema = logical container that groups together related database objects as tables, views, indexes and sequences. 
+- -> easier to maintain
+
+**Public schema**
+- default schema
+- accessible to all users with access to the DB
+
+**Private schema**
+- Only users with granted permission
+
+#### Creating schema
+
+```sql
+CREATE SCHEMA sales; -- by default it is created in the current DB search path
+CREATE SCHEMA sales AUTHORIZATION sales_user; -- define owner
+```
+
+**Moving** object to a different schema
+
+```sql
+ALTER TABLE sales.orders SET SCHEMA orders; 
+```
+
+#### Benefits of using PG schema
+
+- Improved manageability
+- Enhanced security
+- Easier collaboration (clear organization structure)
+- Better performance - by reducing number of queries needed to retrieve data
+
+### Selecting Indexing Techniques
+
+TODO
