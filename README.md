@@ -156,3 +156,20 @@ cat <use_path_from_psql> | grep pg_stat_statements
 docker restart <container_name_or_id> # restart container
 # log as postgres user and try "select * from pg_stat_statements"
 ```
+
+
+## See all executed queires in logs
+
+```
+Edit DB config as in last guide and set following config:
+logging_collector = on
+log_statement = 'all'
+
+restart docker as in previous guide
+
+connect using psql and run:
+ SHOW data_directory; # it should prompt something like /var/lib/postgresql/data/pgdata
+find file with logs
+copy the file from container to localhost
+docker cp docker-compose_postgres_1://var/lib/postgresql/data/pgdata/log/postgresql-2023-11-07_135737.log /home/miroslav_vana/Desktop/tmp/pgDebugging/log2
+```
