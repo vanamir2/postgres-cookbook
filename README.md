@@ -130,3 +130,29 @@ ALTER TABLE sales.orders SET SCHEMA orders;
 ### Selecting Indexing Techniques
 
 TODO
+
+
+
+
+
+# Practical notes
+
+## I want to enable pg_stat_statements on localhost running PG in docker
+
+```
+# new bash
+select * from pg_stat_statements
+CREATE EXTENSION IF NOT EXISTS pg_stat_statements
+SHOW config_file;
+
+# new bash
+docker exec -it docker-compose_postgres_1 /bin/bash
+apt-get install nano
+nano <use_path_from_psql>
+# CTRL+W to find "shared_preload"
+# adjust the file to shared_preload_libraries = 'pg_stat_statements'
+# save changes and verify them
+cat <use_path_from_psql> | grep pg_stat_statements
+docker restart <container_name_or_id> # restart container
+# log as postgres user and try "select * from pg_stat_statements"
+```
