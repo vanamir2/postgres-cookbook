@@ -141,6 +141,7 @@ TODO
 
 ```
 # new bash
+psql -h localhost -p 5432 -U myuser -d mydb
 select * from pg_stat_statements
 CREATE EXTENSION IF NOT EXISTS pg_stat_statements
 SHOW config_file;
