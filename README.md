@@ -135,7 +135,26 @@ TODO
 
 
 
+# Parameters
+
+## Settings parameters
+
+ALTER SYSTEM SET parameter=value;  #cluster level
+ALTER DATABASE db1 SET parameter=value;  #db level
+ALTER ROLE bob SET parameter=value;  #user/role level
+ALTER ROLE bob  in DATABASE db1 SET parameter=value;  #user/role at a specific DB
+SET parameter=value;        #current session level
+SET LOCAL parameter=value;  #current transaction level
+
+## Viewing parameters
+
+SHOW max_connections; # to see value
+select * from pg_settings where name='max_connections'; # to see source (where it was configured)
+
+
+
 # Practical notes
+
 
 ## I want to enable pg_stat_statements on localhost running PG in docker
 
