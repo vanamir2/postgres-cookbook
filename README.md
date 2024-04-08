@@ -137,6 +137,8 @@ TODO
 
 # Parameters
 
+Slides from PgConf 2023 about [TuningPostgres](https://github.com/karenjex/talk-slides/blob/main/TuningPostgreSQL_PGConfEU_2023.pdf)
+
 ## Settings parameters
 
 ALTER SYSTEM SET parameter=value;  #cluster level
